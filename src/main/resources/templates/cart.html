@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cart</title>
+</head>
+<body>
+
+<div>
+    <ul class="nav justify-content-end shadow-lg p-3 mb-5 bg-white rounded">
+        <li class="nav-item">
+            <a class="nav-link active" href="index">Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="brand">Cars</a>
+        </li>
+
+        <li  class="nav-item">
+            <a class="nav-link" href="logout">Logout</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="logout" th:text="${nr_model}"></a>
+        </li>
+    </ul>
+</div>
+
+<div class="container">
+    <div  class="row">
+        <div th:each="m : ${model}" style="margin-bottom: 10px;" class="col-sm">
+            <div class="card" style="width: 18rem;">
+                <img style="height: 200px" th:src="${m.photo}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 th:text="${m.name}" class="card-title"></h5>
+                    <p th:text="${m.description}" class="card-text"></p>
+                    <h6 class="card-title">Price</h6>
+                    <p th:text="${m.price}" class="card-text"></p>
+                </div>
+            </div>
+        </div>
+        <h2><a href="/send-order">Send order</a></h2>
+    </div>
+</div>
+
+</body>
+</html>
