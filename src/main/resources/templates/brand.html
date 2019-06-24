@@ -11,13 +11,13 @@
 <div>
     <ul class="nav justify-content-end shadow-lg p-3 mb-5 bg-white rounded">
         <li class="nav-item">
-            <a class="nav-link active" href="index">Home</a>
+            <a style="color:red" class="nav-link active" href="index">Home</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="brand">Cars</a>
+            <a style="color:red" class="nav-link" href="brand">Cars</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="logout">Logout</a>
+            <a style="color:red" class="nav-link" href="logout">Logout</a>
         </li>
     </ul>
 </div>
@@ -30,7 +30,7 @@
                 <div class="card-body">
                     <h5 th:text="${b.name}" class="card-title"></h5>
                     <p th:text="${b.description}" class="card-text"></p>
-                    <a th:href="@{/model?brand_id=} + ${b.id}" class="btn btn-primary">Browse models</a>
+                    <a style="background-color:green" th:href="@{/model?brand_id=} + ${b.id}" class="btn btn-primary">Browse models</a>
                 </div>
             </div>
         </div>

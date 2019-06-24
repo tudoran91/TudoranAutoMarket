@@ -11,13 +11,13 @@
 <div>
     <ul class="nav justify-content-end shadow-lg p-3 mb-5 bg-white rounded">
         <li class="nav-item">
-            <a class="nav-link active" href="index">Home</a>
+            <a style="color:red" class="nav-link active" href="index">Home</a>
         </li>
         <li th:if="${!logged}" class="nav-item">
-            <a class="nav-link" href="login">Login</a>
+            <a style="color:red" class="nav-link" href="login">Login</a>
         </li>
         <li th:if="${logged}" class="nav-item">
-            <a class="nav-link" href="logout">Logout</a>
+            <a style="color:red" class="nav-link" href="logout">Logout</a>
         </li>
     </ul>
 </div>
@@ -32,7 +32,7 @@
                     <p th:text="${m.description}" class="card-text"></p>
                     <h6 class="card-title">Price</h6>
                     <p th:text="${m.price}" class="card-text"></p>
-                    <a th:href="@{/add-to-cart?model_id=} + ${m.id}" class="btn btn-primary">Buy</a>
+                    <a style="background-color:green" th:href="@{/add-to-cart?model_id=} + ${m.id}" class="btn btn-primary">Buy</a>
                 </div>
             </div>
         </div>
