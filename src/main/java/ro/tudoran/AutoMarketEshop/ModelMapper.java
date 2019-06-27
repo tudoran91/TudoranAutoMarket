@@ -14,7 +14,8 @@ public class ModelMapper implements RowMapper<Model> {
         model.setDescription(resultSet.getString("description"));
         model.setPrice(resultSet.getBigDecimal("price"));
         model.setPhoto(resultSet.getString("photo"));
-
+        model.setId(resultSet.getInt("id"));
+        model.setBrandID(resultSet.getInt("brand_id"));
         return model;
     }
 }

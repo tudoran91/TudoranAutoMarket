@@ -25,8 +25,6 @@ public class EshopController {
     @Autowired
     DatabaseBrandDAO databaseBrandDAO;
 
-    @Autowired
-    private CartSession cartSession;
 
     @GetMapping("/index")
     public ModelAndView index() {
@@ -65,7 +63,7 @@ public class EshopController {
         modelAndView.addObject("logged", securitySession.isUserLogged());
         List<Brand> brandList = databaseBrandDAO.findAll();
         modelAndView.addObject("brand", brandList);
-        modelAndView.addObject("nr_model",cartSession.getmodelIds().size() );
+        modelAndView.addObject("nr_model",0 );
         return modelAndView;
     }
 
@@ -79,7 +77,7 @@ public class EshopController {
         modelAndView.addObject("logged", securitySession.isUserLogged());
         List<Model> modelList = databaseModelDAO.findAllByBrandId(brandId);
         modelAndView.addObject("model", modelList);
-        modelAndView.addObject("nr_model",cartSession.getmodelIds().size() );
+        modelAndView.addObject("nr_model",0 );
         return modelAndView;
     }
 

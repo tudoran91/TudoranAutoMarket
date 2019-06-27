@@ -11,10 +11,11 @@ public class OrderDAO {
     @Autowired
     JdbcTemplate jdbcTemplate;
 
-    public Integer createNewOrder(Integer userId) {
-        String sql = "insert into order values (null,?);";
-        Object[] params = new Object[1];
+    public Integer createNewOrder(Integer userId, Integer modelId) {
+        String sql = "insert into orders values (null,?,?);";
+        Object[] params = new Object[2];
         params[0] = userId;
+        params[1] = modelId;
         jdbcTemplate.update(sql,params);
         Integer orderId = jdbcTemplate.queryForObject("SELECT LAST_INSERT_ID() as id;", Integer.class);
         return orderId;

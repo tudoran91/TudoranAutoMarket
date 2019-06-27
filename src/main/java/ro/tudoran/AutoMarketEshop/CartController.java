@@ -12,9 +12,6 @@ import java.util.List;
 public class CartController {
 
     @Autowired
-    CartSession cartSession;
-
-    @Autowired
     SecuritySession securitySession;
 
     @Autowired
@@ -26,29 +23,12 @@ public class CartController {
     @GetMapping("add-to-cart")
     public String addToCart(
             @RequestParam("model_id") Integer modelId) {
-        List<Integer> ids = cartSession.getmodelIds();
+
 
         Integer brandId = databaseModelDAO.findById(modelId).getBrandID();
 
-        ids.add(modelId);
-        cartSession.setmodelIds(ids);
 
+        orderDAO.createNewOrder(securitySession.getUserId(), modelId);
         return "redirect:/model?brand_id=" + brandId;
-    }
-
-    @GetMapping("send-order")
-    public String sendOrder() {
-        List<Integer> ids = cartSession.getmodelIds();
-        Integer orderId = orderDAO.createNewOrder(securitySession.getUserId());
-        for(Integer id: ids) {
-            orderDAO.createNewOrderLine(
-                    orderId,
-                    id,
-                    databaseModelDAO.findById(id).price
-            );
-        }
-        cartSession.setmodelIds(new ArrayList<>());
-
-        return "redirect:/brand";
     }
 }
