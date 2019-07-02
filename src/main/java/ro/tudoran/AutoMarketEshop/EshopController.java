@@ -81,6 +81,12 @@ public class EshopController {
         return modelAndView;
     }
 
+    @GetMapping("/order")
+    public ModelAndView order() {
+        ModelAndView modelAndView = new ModelAndView("order");
+        return modelAndView;
+    }
+
     @GetMapping("/register-action")
     public String create(
             @RequestParam("name") String name,
