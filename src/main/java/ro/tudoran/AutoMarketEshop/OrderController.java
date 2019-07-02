@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Controller
-public class CartController {
+public class OrderController {
 
     @Autowired
     SecuritySession securitySession;
@@ -29,6 +29,6 @@ public class CartController {
 
 
         orderDAO.createNewOrder(securitySession.getUserId(), modelId);
-        return "redirect:/model?brand_id=" + brandId;
+        return "redirect:/order";
     }
 }
